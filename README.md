@@ -40,7 +40,22 @@ Resource
 
 
 
-## Demo Project Health Check: EC2 Status
+## Demo Project: Health Check: EC2 Status
 See [python script](./main.py)
 All resources were created using terraform.
 [See](./terraform/main.tf)
+
+## Demo Project: configure EC2 instance
+Configured EC2 instance using boto.
+Added tags
+[See](https://github.com/jkrisch/devops-bootcamp-demo-project-14/tree/configure-ec2-instance)
+
+## Demo Project: Cluster Info
+Retrieved EKS cluster info using boto.
+[See](https://github.com/jkrisch/devops-bootcamp-demo-project-14/blob/cluster-info-script)
+
+## Demo Project: Backup with Boto
+Created Snapshots from volumes.
+Cleaned up old Snapshots.
+Created Backup from Snapshot.
+[See](https://github.com/jkrisch/devops-bootcamp-demo-project-14/tree/backup-with-boto)
