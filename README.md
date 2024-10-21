@@ -59,3 +59,7 @@ Created Snapshots from volumes.
 Cleaned up old Snapshots.
 Created Backup from Snapshot.
 [See](https://github.com/jkrisch/devops-bootcamp-demo-project-14/tree/backup-with-boto)
+
+## Demo Project: Monitoring of a webserver
+After I created a droplet on digital ocean and adjusted the firewall such as my IP can connect to the host via ssh (TCP, port 22) I wrote the respective monitoring script following nana.
+[See](https://github.com/jkrisch/devops-bootcamp-demo-project-14/blob/webserver-monitoring/main.py)
