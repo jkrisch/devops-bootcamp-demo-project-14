@@ -9,15 +9,16 @@ import sys
 host_ip = "157.230.119.62"
 webserver_url = f"http://{host_ip}:8080/"
 DO_TOKEN = os.environ.get("DO_TOKEN")
+EMAIL_ADDRESS =  os.environ.get("EMAIL_ADDRESS")
+EMAIL_PASSWORD =  os.environ.get("EMAIL_PASSWORD")
 
 
 def send_email_notification(msg):
     with smtplib.SMTP('smtp.gmail.com', 587) as smtp:
         smtp.starttls()
         smtp.ehlo()
-        
-        #I stopped writing code for the sending email part but continued following the lecture. The issue is that I could not create an application password for my gmail account as this feature has been deprecated.
-        #Therefore oAuth was needed, and I struggled a little setting it up.
+        smtp.login(EMAIL_ADRESS,EMAIL_PASSWORD)
+        msg = f"Subject: Site DOWN\n {msg}"
 
 def restart_server_and_application():
     manager = do.Manager(token=DO_TOKEN)
@@ -54,10 +55,10 @@ def monitor_application():
 
         else:
             message = "Application is not running!"
-            #send_email_notification(msg=message)
+            send_email_notification(msg=message)
             
     except Exception as error:
-        #send_email_notification(msg=f"Connection error happened {error}")
+        send_email_notification(msg=f"Connection error happened {error}")
         restart_server_and_application()
 
 schedule.every(20).seconds.do(monitor_application)
